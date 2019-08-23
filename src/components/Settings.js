@@ -1,7 +1,14 @@
 import React from 'react';
+import SettingsForm from './SettingsForm';
 
-const Settings = () => {
- return <div>Settings</div>;
-};
+class Settings extends React.Component {
+ render() {
+  return (
+   <div className="ui container">
+    <SettingsForm />
+   </div>
+  );
+ }
+}
 
 export default Settings;
