@@ -5,9 +5,8 @@ import Chip from './Chip';
 
 class Stack extends React.Component {
  renderStack() {
-  //return _.chunk(this.props.stack.filter(el => el.holdsChip === true), 10).map(line => {
   return _.chunk(this.props.stack, 10).map(line => { 
-   return <div key={line[0].chipId} style={{ height: 60 + 'px', display: 'flex', flexDirection: 'row' }}>
+   return <div key={line[0].chipId} style={{ height: '8vmin', display: 'flex', flexDirection: 'row' }}>
     {
      line.map(chip => {
       return <div key={chip.chipId}><Chip chipId={chip.chipId}/></div>;

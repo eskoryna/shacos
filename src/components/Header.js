@@ -9,15 +9,11 @@ import { startGame } from '../actions';
 class Header extends React.Component {
  startGame = () => {
   this.props.startGame();
-  // this.props.initializeBoard();
-  // this.props.initializeStack();
-  // this.props.initializeScore();
-  // this.props.switchPlayer();
  }
  
  renderHeader() {
   return (
-   <div className="ui secondary pointing menu">
+   <div className="ui secondary pointing menu" style={{ margin: '0.2rem' }} >
     <Link to="/" className="ui big google button">
      Shacos
     </Link>

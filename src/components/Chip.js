@@ -13,11 +13,11 @@ class Chip extends React.Component {
 
   if (this.props.chip.holdsChip === true) {
    return <div>
-    <img style={{ width: '60px', height: '60px' }} src={chipsImages[chipId]} alt={chipId} onClick={() => this.onChipClick(chipId)} />
+    <img style={{ width: '8vmin', height: '8vmin' }} src={chipsImages[chipId]} alt={chipId} onClick={() => this.onChipClick(chipId)} />
    </div>
   } else {
    return <div>
-    <img style={{ width: '60px', height: '60px' }} src={chipsImages[100]} alt={chipId} />
+    <img style={{ width: '8vmin', height: '8vmin' }} src={chipsImages[100]} alt={chipId} />
    </div>
   }
  }
