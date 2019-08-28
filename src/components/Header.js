@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Players from './Players';
 import GoogleAuth from './GoogleAuth';
-// import { initializeBoard, initializeStack, initializeScore, switchPlayer } from '../actions';
 import { startGame } from '../actions';
 
 class Header extends React.Component {
@@ -14,15 +13,17 @@ class Header extends React.Component {
  renderHeader() {
   return (
    <div className="ui secondary pointing menu" style={{ margin: '0.2rem' }} >
-    <Link to="/" className="ui big google button">
+    <Link to="/" className="ui large orange button">
      Shacos
     </Link>
     <Players />
     <div className="right menu">
-     <button onClick={() => this.startGame()} className="ui big green google button">
-      Start new game
+     <button onClick={() => this.startGame()} className="ui large green button">
+     <i className="th icon" />
+      New game
      </button>
-     <Link to="/settings" className="ui big google button">
+     <Link to="/settings" className="ui large button">
+     <i className="bars icon" />
       Settings
      </Link>
      <GoogleAuth />
@@ -39,5 +40,4 @@ class Header extends React.Component {
 export default connect(
  null,
  { startGame }
- // { initializeBoard, initializeStack, initializeScore, switchPlayer }
 )(Header);

@@ -1,4 +1,4 @@
-import { INITIALIZE_BOARD, INITIALIZE_STACK, END_MOVE, START_GAME } from '../actions/types';
+import { INITIALIZE_BOARD, INITIALIZE_STACK, CHANGE_BOARD_SIZE, END_MOVE, START_GAME } from '../actions/types';
 
 const INITIAL_STATE = {
  numberOfPlayers: 2,
@@ -15,6 +15,8 @@ export default (state = INITIAL_STATE, action) => {
    return { ...state, availableFields: state.boardSize * state.boardSize};
   case INITIALIZE_STACK:
    return { ...state, availableChips: state.stackSize * state.stackSize };
+  case CHANGE_BOARD_SIZE:
+   return { ...state, boardSize: action.payload };
   case END_MOVE:
    var playerToMoveId = state.playerToMoveId + 1;
 

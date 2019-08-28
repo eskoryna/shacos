@@ -5,6 +5,7 @@ import {
  INITIALIZE_BOARD,
  INITIALIZE_STACK,
  INITIALIZE_SCORE,
+ CHANGE_BOARD_SIZE,
  START_MOVE,
  END_MOVE,
  START_GAME,
@@ -87,6 +88,13 @@ export const initializeScore = () => dispatch => {
   type: INITIALIZE_SCORE
  });
 };
+
+export const changeBoardSize = boardSize => dispatch => {
+ dispatch ({
+  type: CHANGE_BOARD_SIZE,
+  payload: boardSize
+ });
+}
 
 export const switchPlayer = () => (dispatch, getState) => {
  const playerToMoveId = getState().game.playerToMoveId;

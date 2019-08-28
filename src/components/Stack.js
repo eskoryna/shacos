@@ -5,8 +5,8 @@ import Chip from './Chip';
 
 class Stack extends React.Component {
  renderStack() {
-  return _.chunk(this.props.stack, 10).map(line => { 
-   return <div key={line[0].chipId} style={{ height: '8vmin', display: 'flex', flexDirection: 'row' }}>
+  return _.chunk(this.props.stack, this.props.stackSize).map(line => { 
+   return <div key={line[0].chipId} style={{ height: 80 / this.props.stackSize + 'vmin', display: 'flex', flexDirection: 'row' }}>
     {
      line.map(chip => {
       return <div key={chip.chipId}><Chip chipId={chip.chipId}/></div>;
@@ -23,6 +23,7 @@ class Stack extends React.Component {
 
 const mapStateToProps = state => {
  return {
+  stackSize: state.game.stackSize,
   stack: state.stack
  };
 }

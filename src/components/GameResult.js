@@ -1,13 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from  'react-router-dom';
 import Modal from './Modal';
 import history from '../history';
+import { startGame } from '../actions';
 
 class GameResult extends React.Component {
+ startNewGame() {
+  this.props.startGame();
+  history.push('/');
+ }
+ 
  renderContent() {
   const result = [...this.props.players];
   result.sort((a, b) => (a.score > b.score) ? -1 : 1);
-  //const result = this.props.players.slice(0).sort((a, b) => (a.score > b.score) ? -1 : 1);
   return (
    <div>
     {this.renderWinner(result)}
@@ -46,7 +52,18 @@ class GameResult extends React.Component {
  
  renderActions() {
   return <React.Fragment>
-   <button onClick={() => history.push('/')} className="ui primary button">OK</button>
+   <button onClick={() => this.startNewGame()} className="ui green  button">
+   <i className="th icon" />
+    New game
+   </button>
+   <Link to="/settings" className="ui grey button">
+   <i className="bars icon" />
+    Settings
+   </Link>
+   <button onClick={() => history.push('/')} className="ui primary button">
+    <i className="arrow left icon" />
+    Back to board
+   </button>
   </React.Fragment>
  }
 
@@ -70,5 +87,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(
- mapStateToProps
+ mapStateToProps,
+ { startGame }
 )(GameResult);

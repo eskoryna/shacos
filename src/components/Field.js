@@ -16,12 +16,12 @@ class Field extends React.Component {
 
   if (chipId === null) {
    return <div>
-    <img style={{ width: '25.5vmin', zIndex: '1', position: 'relative' }} src={fieldsImages[color]} alt={fieldId} onClick={() => this.onFieldClick(fieldId)} />
+    <img style={{ width: 80 / this.props.boardSize + 'vmin', zIndex: '1', position: 'relative' }} src={fieldsImages[color]} alt={fieldId} onClick={() => this.onFieldClick(fieldId)} />
    </div>
   } else {
    return <div>
-    <img style={{ width: '25.5vmin', zIndex: '1', position: 'absolute' }} src={fieldsImages[color]} alt={fieldId} />
-    <img style={{ width: '25.5vmin', zIndex: '2', position: 'relative' }} src={chipsImages[chipId]} alt={chipId} />
+    <img style={{ width: 80 / this.props.boardSize + 'vmin', zIndex: '1', position: 'absolute' }} src={fieldsImages[color]} alt={fieldId} />
+    <img style={{ width: 80 / this.props.boardSize + 'vmin', zIndex: '2', position: 'relative' }} src={chipsImages[chipId]} alt={chipId} />
    </div>
   }
  }
@@ -39,6 +39,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export default connect(
-mapStateToProps,
+ mapStateToProps,
  { endMove }
 )(Field);

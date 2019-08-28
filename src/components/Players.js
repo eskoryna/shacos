@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 class Players extends React.Component {
  renderPlayers() {
   return this.props.players.map(player => {
-   return <div className="ui big pink horizontal label" key={player.playerId} >
+   return <div className="ui large pink button" key={player.playerId} >
+    <i className={player.playsColor ? "paint brush icon" : "star icon" } />
     {player.name}: ${player.score}
    </div>;
   });

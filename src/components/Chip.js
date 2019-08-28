@@ -13,11 +13,11 @@ class Chip extends React.Component {
 
   if (this.props.chip.holdsChip === true) {
    return <div>
-    <img style={{ width: '8vmin', height: '8vmin' }} src={chipsImages[chipId]} alt={chipId} onClick={() => this.onChipClick(chipId)} />
+    <img style={{ width: 80 / this.props.stackSize + 'vmin', height: 80 / this.props.stackSize + 'vmin' }} src={chipsImages[chipId]} alt={chipId} onClick={() => this.onChipClick(chipId)} />
    </div>
   } else {
    return <div>
-    <img style={{ width: '8vmin', height: '8vmin' }} src={chipsImages[100]} alt={chipId} />
+    <img style={{ width: 80 / this.props.stackSize + 'vmin', height: 80 / this.props.stackSize + 'vmin' }} src={chipsImages[100]} alt={chipId} />
    </div>
   }
  }
@@ -29,6 +29,7 @@ class Chip extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
  return {
+  stackSize: state.game.stackSize,
   chip: state.stack.find(chip => chip.chipId === ownProps.chipId)
  };
 };

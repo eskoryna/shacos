@@ -8,10 +8,8 @@ const INITIAL_STATE = [{
  score: 0
 }, {
  playerId: 1,
- name: 'AI Maximizer',
+ name: 'AI',
  ai: 'maximizer',
- // name: 'AI Random',
- // ai: 'random',
  playsColor: false,
  score: 0
 }]

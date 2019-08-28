@@ -17,14 +17,14 @@ class SettingsForm extends React.Component {
   return (
    <div className={className}>
     <label>{label}</label>
-    <input {...input} type="number" min="2" max="30" autoComplete="off" style={{ width: '6rem' }} />
+    <input {...input} type="number" min="2" max="20" autoComplete="off" style={{ width: '6rem' }} />
     {this.renderError(meta)}
    </div>
   );
  }
 
- onSubmit(formValues) {
-  //console.log(formValues);
+ onSubmit = formValues => {
+  this.props.onSubmit(formValues);
  }
  
  render() {
@@ -44,8 +44,8 @@ const validate = (formValues) => {
   errors.boardSize = 'You have to enter a board size';
  }
 
- if (!Number.isInteger(Number(formValues.boardSize)) || Number(formValues.boardSize) < 2 || Number(formValues.boardSize) > 30) {
-  errors.boardSize = 'The board size has to be an integer between 2 and 30';
+ if (!Number.isInteger(Number(formValues.boardSize)) || Number(formValues.boardSize) < 2 || Number(formValues.boardSize) > 20) {
+  errors.boardSize = 'The board size has to be an integer between 2 and 20';
  }
 
  return errors;
