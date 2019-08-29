@@ -5,22 +5,12 @@ export default (state = [], action) => {
   case INITIALIZE_BOARD:
    return action.payload;
   case END_MOVE:
-   return state.map((item, index) => index === action.payload.fieldId ? {
-     fieldId: item.fieldId,
-     fieldColor: item.fieldColor,
-     chipId: action.payload.chipId,
-     colorPoints: item.colorPoints,
-     formPoints: item.formPoints
-    } : item
+   return state.map((item, index) => index === action.payload.fieldId ?
+    { ...item, chipId: action.payload.chipId } : item
    );
   case UPDATE_POINTS:
-   return state.map((item, index) => index === action.payload.fieldId ? {
-    fieldId: item.fieldId,
-    fieldColor: item.fieldColor,
-    chipId: item.chipId,
-    colorPoints: action.payload.colorPoints,
-    formPoints: action.payload.formPoints
-   } : item
+   return state.map((item, index) => index === action.payload.fieldId ?
+    { ...item, colorPoints: action.payload.colorPoints, formPoints: action.payload.formPoints } : item
    );
   default:
    return state;
