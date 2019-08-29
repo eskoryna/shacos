@@ -1,6 +1,7 @@
 import { INITIALIZE_BOARD, INITIALIZE_STACK, CHANGE_BOARD_SIZE, END_MOVE, START_GAME } from '../actions/types';
 
 const INITIAL_STATE = {
+ gameDidStart: false,
  numberOfPlayers: 2,
  playerToMoveId: 0,
  boardSize: 3,
@@ -26,7 +27,7 @@ export default (state = INITIAL_STATE, action) => {
 
    return { ...state, availableFields: state.availableFields - 1, availableChips: state.availableChips - 1, playerToMoveId: playerToMoveId };
   case START_GAME:
-   return { ...state, playerToMoveId: 0 }
+   return { ...state, gameDidStart: true, playerToMoveId: 0 }
   default:
    return state;
  }
